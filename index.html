@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Bau Kim::Fretboard Challenge
+        </title>
+        <script>
+            var strings = ["E","A","D","G","B"]
+            var notes = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"]
+
+            var resetElem, stringElem, noteElem
+
+            function init() {
+                resetElem = document.querySelector('#reset');
+                resetElem.addEventListener('click', () => {
+                    reset()
+                })
+                reset()
+            }
+
+            function reset() {
+                var string = strings[Math.floor(Math.random() * strings.length)]
+                var note = notes[Math.floor(Math.random() * notes.length)]
+
+                stringElem = document.querySelector('#string')
+                noteElem = document.querySelector('#note')
+
+                stringElem.value = string
+                noteElem.value = note
+            }
+
+            window.onload = init
+        </script>
+        <style>
+        <style>
+            body {
+                text-align: center;
+                color: #fff;
+            }
+            body, h1, h2 {
+                font-family: arial;
+            }
+            label, input {
+                font-size: 25px;
+            }
+            label {
+                font-weight:600;
+                display: inline-block;
+            }
+            input[type='text'] {
+                width: 2em;
+                text-align: center;
+            }
+            label, input[type='button'] {
+                width: 50%;
+                padding: 5px 0;
+            }
+            .container {
+                max-width: 700px;
+                width: 100%;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Fretboard Challenge</h1>
+            <div id="challenge">
+                <h2>Find the Fret!</h2>
+                <div id="string-container">
+                    <label>String: </label>
+                    <input id="string" type="text" readonly>
+                </div>
+                <div id="note-container">
+                    <label>Note: </label>
+                    <input id="note" type="text" readonly>
+                </div>
+            </div>
+            <div id="answer">
+            </div>
+            <input id="reset" type="button" value="Next">
+        </div>
+    </body>
+</html>
